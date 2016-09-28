@@ -1,6 +1,4 @@
-################## BEGIN INSTALLATION ######################
-# Install build server for picoKiosk linux client
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 MAINTAINER GaRaOne
 
@@ -14,6 +12,8 @@ ENV QMAKESPEC android-g++
 ENV LD_LIBRARY_PATH=$QT_PATH/lib/x86_64-linux-gnu:$QT_PATH/lib:$LD_LIBRARY_PATH
 ENV PKG_CONFIG_PATH=$QT_BAQT_PATHSE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
 ENV PATH=${PATH}:${QT_ANDROID}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN sudo dpkg --add-architecture i386 && \
     apt-get update -q && \
@@ -59,4 +59,3 @@ RUN locale-gen en_US.UTF-8 \
 RUN rm -rf /var/lib/apt/lists/*
 
 CMD ["/bin/bash"]
-##################### INSTALLATION END #####################
