@@ -8,10 +8,11 @@ ARG QTM=5.7
 ENV DEBIAN_FRONTEND noninteractive
 ENV QT_PATH /opt/qt
 ENV QT_BASE_DIR=$QT_PATH
-ENV QMAKESPEC android-g++
+ENV QT_LINUX ${QT_PATH}/${QTM}/gcc_64
+
 ENV LD_LIBRARY_PATH=$QT_PATH/lib/x86_64-linux-gnu:$QT_PATH/lib:$LD_LIBRARY_PATH
 ENV PKG_CONFIG_PATH=$QT_BAQT_PATHSE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
-ENV PATH=${PATH}:${QT_ANDROID}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+ENV PATH=${PATH}:${QT_LINUX}/bin
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
