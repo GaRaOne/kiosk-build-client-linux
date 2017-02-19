@@ -25,12 +25,14 @@ RUN sudo dpkg --add-architecture i386 && \
         curl \
         default-jdk \
         git \
-        libavahi-common-dev \
         libavahi-client-dev \
+        libavahi-common-dev \
         libc6:i386 \
         libfontconfig1 \
+        libglib2.0-dev \
         libglu1-mesa-dev \
         libice6 \
+        libpulse-dev \
         libncurses5:i386 \
         libsm6 \
         libstdc++6:i386 \
